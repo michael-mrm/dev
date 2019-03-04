@@ -12,6 +12,12 @@
 */
 Route::get('/','PagesController@welcome');
 Route::get('/bikes','bikescontroller@index');
+Route::get('/createbikes','bikescontroller@create');
+Route::get('/showbikes/{bike}','bikescontroller@show');
+Route::post('/storebikes','bikescontroller@store');
+Route::get('/editbikes/{bike}','bikescontroller@edit');
+Route::patch('/updatebikes/{bike}','bikescontroller@update');
+Route::delete('/deletebikes/{bike}','bikescontroller@delete');
 //Route::get('/bikes','PagesController@bikes');
 /*
 Route::get('/', function(){
