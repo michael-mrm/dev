@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('bikes.display')
 @section('content')
-    <h3>edit bikes</h3>
+    <h3>edit bike</h3>
     <form method="post" action="/updatebikes/{{$bikes->id}}">
         {{method_field('patch')}}
         {{csrf_field()}}

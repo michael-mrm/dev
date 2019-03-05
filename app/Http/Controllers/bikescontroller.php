@@ -15,16 +15,14 @@ class bikescontroller extends Controller
     public function create(){     
         return view('bikes.create');
     }
-    public function show(){     
-     
-    }    
-    public function store(){   
-        //return request()->all();
-        $bikes = new bikes();  
-        $bikes->brand = request('brand');
-        $bikes->model = request('model');
-        $bikes->price = request('price');
-        $bikes->save();  
+    public function show($id){     
+        $bikes = bikes::findorfail($id);  
+        return view('bikes.show',['bikes' => $bikes]);
+    }
+    public function store(){
+        bikes::create([
+            'brand' => request('brand'),'model' => request('model'),'price' => request('price')
+        ]);   
         return redirect('/bikes');
     }
     public function edit($id){     
@@ -32,11 +30,10 @@ class bikescontroller extends Controller
         return view('bikes.edit',['bikes' => $bikes]);
     }
     public function update($id){     
-        $bikes = bikes::findorfail($id);      
-        $bikes->brand = request('brand');
-        $bikes->model = request('model');
-        $bikes->price = request('price');
-        $bikes->save();  
+        $bikes = bikes::findorfail($id);
+        $bikes = bikes::create([
+            'brand' => request('brand'),'model' => request('model'),'price' => request('price')
+        ]);    
         return redirect('/bikes');
     }
     public function delete($id){     

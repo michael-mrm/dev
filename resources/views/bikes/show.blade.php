@@ -1,20 +1,17 @@
-@extends('bikes.master')
+@extends('bikes.display')
 @section('content')
 <table>
-    <tr>
-    @foreach ($bikes as $bikes)        
+    <tr>     
     <td>
         <h3>{{$bikes->brand}}</h3>
         <h5>{{$bikes->model}}</h5>
         <p>{{$bikes->price}}</p>
         <br/>
         <ul>
-            <li><a href="/showbikes/{{$bikes->id}}">select bike</a></li>
+            <li><a href="/editbikes/{{$bikes->id}}">edit bike</a></li>
         </ul>
         <br/>
     </td>    
-    @endforeach
     </tr>
 </table>
 @endsection
-

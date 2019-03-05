@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('bikes.display')
 @section('content')
     <form method="post" action="/storebikes">
     {{csrf_field()}}
