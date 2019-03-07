@@ -12,7 +12,7 @@ class bikescontroller extends Controller
         $bikes = bikes::all();        
         return view('bikes.index', ['bikes' => $bikes]);
     }
-    public function create(){     
+    public function create(){                     
         return view('bikes.create');
     }
     public function show($id){     
@@ -20,6 +20,11 @@ class bikescontroller extends Controller
         return view('bikes.show',['bikes' => $bikes]);
     }
     public function store(){
+        request()->validate([
+            'brand' => ['required','min:2','max:255'],
+            'model' => ['required','min:2','max:255'],
+            'price' => ['required','min:2','max:255']
+        ]);
         bikes::create([
             'brand' => request('brand'),'model' => request('model'),'price' => request('price')
         ]);   

@@ -5,76 +5,37 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel - Bike details</title>
+        <title>Laravel - list of bikes</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <!-- Bootstrap core CSS -->
+        <link href="/css/bootstrap.css" rel="stylesheet">
+        <link href="/css/bikes.css" rel="stylesheet">  
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="m-b-md">
-                    <h2>Laravel - Bike details</h2>
+      <div class="container"> 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <div class="heading-title">
+                        <h2>Laravel - Bike Details</h3>                        
+                    </div>    
+                    <hr>              
                 </div>
-
-                <div class="links">
-                    @yield('content')
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <div>
+                        @yield('content')
+                    </div>                    
                 </div>
             </div>
         </div>
+       </div>
     </body>
 </html>
