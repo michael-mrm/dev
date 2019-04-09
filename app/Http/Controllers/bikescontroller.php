@@ -20,14 +20,10 @@ class bikescontroller extends Controller
         return view('bikes.show',['bikes' => $bikes]);
     }
     public function store(){
-        request()->validate([
-            'brand' => ['required','min:2','max:255'],
-            'model' => ['required','min:2','max:255'],
-            'price' => ['required','min:2','max:255']
+        $validated = request()->validate([
+            'brand' => ['required','min:2','max:255'],'model' => ['required','min:2','max:255'],'price' => ['required','min:2','max:255']
         ]);
-        bikes::create([
-            'brand' => request('brand'),'model' => request('model'),'price' => request('price')
-        ]);   
+        bikes::create($validated);   
         return redirect('/bikes');
     }
     public function edit($id){     
@@ -36,9 +32,10 @@ class bikescontroller extends Controller
     }
     public function update($id){     
         $bikes = bikes::findorfail($id);
-        $bikes = bikes::create([
-            'brand' => request('brand'),'model' => request('model'),'price' => request('price')
-        ]);    
+        $validated = request()->validate([
+            'brand' => ['required','min:2','max:255'],'model' => ['required','min:2','max:255'],'price' => ['required','min:2','max:255']
+        ]);
+        $bikes->update($validated);  
         return redirect('/bikes');
     }
     public function delete($id){     

@@ -19,5 +19,14 @@
         {{method_field('delete')}}
         {{csrf_field()}}  
         <button type="submit">delete bike</button>
-    </form>    
+    </form>
+     @if ($errors->any())
+    <div class="alert alert-warning">
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+        </ul>
+    </div>
+    @endif    
 @endsection
