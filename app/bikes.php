@@ -10,4 +10,9 @@ class bikes extends Model
     protected $fillable = [ 
         'brand','model','price'
     ];
+
+    public function parts(){
+        return $this->hasMany(Parts::class);
+    }
+
 }

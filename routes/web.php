@@ -18,6 +18,8 @@ Route::post('/storebikes','bikescontroller@store');
 Route::get('/editbikes/{bike}','bikescontroller@edit');
 Route::patch('/updatebikes/{bike}','bikescontroller@update');
 Route::delete('/deletebikes/{bike}','bikescontroller@delete');
+Route::patch('/parts/{part}','bikespartscontroller@update');
+Route::post('/storeparts/{bike}','bikespartscontroller@store');
 //Route::get('/bikes','PagesController@bikes');
 /*
 Route::get('/', function(){
