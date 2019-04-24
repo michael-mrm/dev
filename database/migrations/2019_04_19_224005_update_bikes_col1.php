@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBikes extends Migration
+class UpdateBikesCol1 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateBikes extends Migration
      */
     public function up()
     {
-        Schema::create('bikes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('owner_id');
-            $table->string('brand');
-            $table->string('model');
-            $table->string('price');            
-            $table->timestamps();
+        Schema::table('bikes', function (Blueprint $table) {
+            $table->unsignedInteger('owner_id')->nullable();
             $table->foreign('owner_id')->references('id')->on('users');
         });
     }
@@ -31,6 +26,6 @@ class CreateBikes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bikes');
+        //
     }
 }

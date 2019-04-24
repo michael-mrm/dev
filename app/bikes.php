@@ -8,7 +8,7 @@ class bikes extends Model
 {
     protected $table = 'bikes';
     protected $fillable = [ 
-        'brand','model','price'
+        'brand','model','price','owner_id'
     ];
 
     public function parts(){

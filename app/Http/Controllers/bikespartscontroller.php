@@ -9,7 +9,16 @@ use App\Parts;
 
 class bikespartscontroller extends Controller
 {
-    public function store($id){   
+    public function authparts(){
+        $this->middleware('auth');  
+        if(auth()->id()){
+            return true;
+        }else{
+            abort(403, 'Authentication required.');
+        }
+    }
+    public function store($id){  
+        $this->authparts(); 
         $bikes = bikes::findorfail($id);         
         $validated = request()->validate(['description' => ['required','min:2','max:255']]);                   
         $Parts = Parts::create([
@@ -19,8 +28,11 @@ class bikespartscontroller extends Controller
         return back();
     }    
     public function update($id){    
+        $this->authparts(); 
         $parts = Parts::findorfail($id);
-        $iscompleted = ['completed' => request()->has('completed')];          
+        if (!($iscompleted = ['completed' => request()->has('completed')])){
+            $iscompleted = ['completed' => false];
+        }  
         $parts->update($iscompleted);  
         return back();
     }

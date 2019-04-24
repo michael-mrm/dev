@@ -40,15 +40,18 @@
                 </div>                
             </div>            
         </div>
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="content">
                     <hr>
                     <br/>
+                    @can ('create', $bikes)
                     <a href="/createbikes">create a bike</a>           
+                    @endcan
                 </div>
             </div>
-        </div>  
+        </div>          
        </div>
     </body>
 </html>

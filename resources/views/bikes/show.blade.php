@@ -20,6 +20,7 @@
         @endforeach
     </div>  
     <br/>  
+    @can ('view', $bikes)
     <form method="POST" action="/storeparts/{{$bikes->id}}">
         {{csrf_field()}}
         <div>
@@ -28,7 +29,8 @@
         <button type="submit">add new part</button>
     </form>
     <br/>
-      @if ($errors->any())
+    @endcan
+    @if ($errors->any())
     <div class="alert alert-warning">
         <ul>
         @foreach ($errors->all() as $error)
@@ -37,9 +39,11 @@
         </ul>
     </div>
     @endif    
+    @can ('view', $bikes)
     <ul>
         <li><a href="/editbikes/{{$bikes->id}}">edit bike</a></li>
     </ul>
+    @endcan
     <br/>
 </div>
 @endsection
