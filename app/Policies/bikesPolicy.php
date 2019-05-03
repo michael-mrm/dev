@@ -58,8 +58,8 @@ class bikesPolicy
      */
     public function delete(User $user, bikes $bikes)
     {
-        if($bikes->owner_id == $user->id || $user->id == 60){
-            return true; // user id 60 is admin
+        if($bikes->owner_id == $user->id){
+            return true; 
         }else{
             abort(403, 'Unauthorized action, you are not the owner.');
         }
