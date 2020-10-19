@@ -25,7 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Gate::before(function ($user){
-            if ($user->id == 60){
+            if ($user->id == env('ADMIN_ID', '')){
                 return true;  // user id is admin
             }            
         });
